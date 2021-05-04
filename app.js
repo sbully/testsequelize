@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 db.authenticate()
   .then(() => console.log('database connected ....'))
   .catch((err) => console.log(`unable to connect, Error :${err}`));
-app.get('/', (req, res) => res.send('INDEX'));
+//app.get('/', (req, res) => res.send('INDEX'));
 
 app.use('/', routes);
 
