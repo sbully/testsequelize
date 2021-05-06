@@ -1,5 +1,6 @@
-const { sequelize } = require('../model/labmembers.model');
-const labMembers = require('../model/labmembers.model');
+//const { sequelize } = require('../model/labmembers.model');
+//const labMembers = require('../model/labmembers.model');
+const labMember = require('../../models/labmembers');
 
 const CrudInstance = {
   async destroyAll(req, res) {
@@ -15,14 +16,13 @@ const CrudInstance = {
     try {
       const toto = await labMembers.create(
         {
-          firstname: 'Toto',
-          lastname: 'De Toto',
-          email: 'toto@gmail.com',
-          role: 'Member',
+          firstname: 'seb',
+          lastname: 'sebastien',
+          email: 'seb@gmail.com',
         },
         { transaction: trans }
       );
-      const pierre = await labMembers.create(
+      /* const pierre = await labMembers.create(
         {
           firstname: 'Pierre',
           lastname: 'Mr Pierre',
@@ -51,7 +51,7 @@ const CrudInstance = {
           role: 'Member',
         },
         { transaction: trans }
-      );
+      );*/
       await trans.commit();
     } catch (err) {
       console.log(`Cant create new member: ${err}`);
