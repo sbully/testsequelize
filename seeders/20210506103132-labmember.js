@@ -14,18 +14,21 @@ module.exports = {
           lastname: 'De Toto',
           email: 'toto@gmail.com',
           role: 'Member',
+          createdAt: new Date('YYYY-MM-DD'),
         },
         {
           firstname: 'Paul',
           lastname: 'Mr Paul',
           email: 'Paul@gmail.com',
           role: 'Member',
+          createdAt: new Date('YYYY-MM-DD'),
         },
         {
           firstname: 'Cunegonde',
           lastname: 'Madame',
           email: 'cunegonde@gmail.com',
           role: 'Member',
+          createdAt: new Date('YYYY-MM-DD').now,
         },
       ],
       {}
@@ -33,12 +36,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
     await queryInterface.bulkDelete('LabMembers', null, {});
   },
 };
