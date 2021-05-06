@@ -1,4 +1,6 @@
 'use strict';
+var DataTypes = require('sequelize/lib/data-types');
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('LabMembers', {
@@ -18,14 +20,13 @@ module.exports = {
         type: Sequelize.STRING,
       },
       role: {
-        type: Sequelize.ENUM,
-        values: ['Admin', 'Member', 'User'],
         allowNull: false,
+        type: Sequelize.ENUM('Admin', 'Member', 'User'),
         defaultValue: 'User',
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
       },
       updatedAt: {
         allowNull: false,
