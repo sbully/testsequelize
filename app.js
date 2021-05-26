@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const db = require('./app/services/dbconnectionservice');
+const db = require('./app/services/dbconnection/dbconnectionservice');
 const routes = require('./app/routes');
 
 const app = express();

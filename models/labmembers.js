@@ -3,22 +3,35 @@ const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class LabMembers extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
+    static associate(models) {}
   }
   LabMembers.init(
     {
-      id: DataTypes.INTEGER,
-      firstname: DataTypes.STRING,
-      lastname: DataTypes.STRING,
-      email: DataTypes.STRING,
-      role: DataTypes.ENUM,
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      firstname: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      lastname: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      role: {
+        allowNul: false,
+        type: DataTypes.ENUM('Admin', 'Member', 'User'),
+        validate: {
+          notEmpty: true,
+        },
+      },
     },
     {
       sequelize,

@@ -13,6 +13,7 @@ module.exports = {
           firstname: 'Toto',
           lastname: 'De Toto',
           email: 'toto@gmail.com',
+          role: 'Admin',
           createdAt: new Date(),
           updatedAt: new Date(),
         },

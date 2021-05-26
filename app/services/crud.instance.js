@@ -1,6 +1,6 @@
 //const { sequelize } = require('../model/labmembers.model');
 //const labMembers = require('../model/labmembers.model');
-const labMember = require('../../models/labmembers');
+const labMembers = require('../../models/labmembers');
 
 const CrudInstance = {
   async destroyAll(req, res) {
