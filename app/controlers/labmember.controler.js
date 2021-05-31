@@ -1,4 +1,4 @@
-const LabMemberService = require('../services/labmember.service');
+const LabMemberService = require('../services/labmember/labmember.service');
 
 const LabMemberControler = {
   async getAllLabMembers(req, res) {
@@ -54,7 +54,6 @@ const LabMemberControler = {
 
   async updateLabMember(req, res) {
     const { id, firstname } = req.params;
-    //console.log(`id: ${id} firstname: ${firstname}`);
     try {
       await LabMemberService.updateLabMember(req.params);
     } catch (err) {

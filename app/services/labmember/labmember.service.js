@@ -1,6 +1,6 @@
-const { LabMembers, sequelize } = require('../../models');
-const labmembers = require('../../models/labmembers');
-const { updateLabMember } = require('../controlers/labmember.controler');
+const { LabMembers, sequelize } = require('../../../models/');
+/* const labmembers = require('../../../models/labmembers'); */
+/* const { updateLabMember } = require('../../controlers/labmember.controler'); */
 
 const LabMembersService = {
   async getAllLabMembers() {
@@ -9,9 +9,7 @@ const LabMembersService = {
   async getOneMemberById(id) {
     return await LabMembers.findByPk(id);
   },
-  async getOneMemberById(id) {
-    return await LabMembers.findByPk(id);
-  },
+
   async deleteOneLabMember(id) {
     if (parseInt(id)) {
       const trans = await sequelize.transaction();
