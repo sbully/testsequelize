@@ -1,5 +1,5 @@
 const { LabMembers, sequelize } = require('../../../models/');
-const bcrypt = require('bcryptjs');
+const PasswordService = require('../password/password.service');
 
 const LabMembersService = {
   getAllLabMembers: async () => {
@@ -35,9 +35,7 @@ const LabMembersService = {
       /* let password; */
       console.log(newLabMember);
       const trans = await sequelize.transaction();
-
-      const salt = bcrypt.genSaltSync(10);
-      const password = bcrypt.hashSync(newLabMember.password, salt);
+      const password = PasswordService.getHashPassword(newLabMember.password);
 
       console.log(password);
       try {
