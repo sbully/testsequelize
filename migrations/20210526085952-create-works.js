@@ -13,7 +13,7 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
-      projectid: {
+      projectId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         primaryKey: true,

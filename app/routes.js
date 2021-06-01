@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const LabMemberControler = require('./controlers/labmember.controler');
-const AddMemberService = require('./services/addService/addmember.service');
+const ProjectControler = require('./controlers/project.controler');
+const AddMemberService = require('./services/middleware/addmember.service');
+const LoginControler = require('./controlers/login.controler');
 /* const db = require('./services/dbconnectionservice');
 const labMembers = require('./model/labmembers.model');
 const CrudInstance = require('./services/crud.instance'); */
@@ -15,6 +17,7 @@ router.get('/update', CrudInstance.updateUser);
 router.get('/delete', CrudInstance.deleteUser);
 router.get('/destroy', CrudInstance.destroyAll);
 */
+
 router.get('/', LabMemberControler.getAllLabMembers);
 router.get('/one/:id', LabMemberControler.getOneLabMember);
 router.post(
@@ -25,5 +28,10 @@ router.post(
 );
 router.post('/delete/:id', LabMemberControler.deleteOneLabMember);
 router.post('/update/:id&:firstname', LabMemberControler.updateLabMember);
+
+router.get('/projects', ProjectControler.getAllProject);
+router.get('/projects/:id', ProjectControler.getOneProject);
+
+router.post('/login', LoginControler.login);
 
 module.exports = router;

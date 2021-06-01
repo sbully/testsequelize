@@ -25,7 +25,13 @@ module.exports = {
         },
         {
           name: 'Project4',
-          description: 'projet 4',
+          description: 'projet 4 parce que.',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: 'SpaceX',
+          description: 'Space X API',
           createdAt: new Date(),
           updatedAt: new Date(),
         },
