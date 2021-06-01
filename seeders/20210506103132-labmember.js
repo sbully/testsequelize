@@ -14,7 +14,8 @@ module.exports = {
           firstname: 'Toto',
           lastname: 'Toto',
           email: 'toto@gmail.com',
-          password: 'passwordTT',
+          password:
+            '$2a$10$vgp6A/t0UYP3TU54Ci.9k.nmtIfWuEzXgRR7Rq0ubzRHufxNgqhjG', //password = passwordtoto
           role: 'Admin',
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -24,7 +25,8 @@ module.exports = {
           firstname: 'Paul',
           lastname: 'Mr Paul',
           email: 'Paul@gmail.com',
-          password: 'passwordPM',
+          password:
+            '$2a$10$uumTh7/ApN.uW2s9MzoWR.2oSEJF.ZQBTxFNIYjNLyOTj5vFUQ4F2', // password = password
           role: 'Member',
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -34,7 +36,8 @@ module.exports = {
           firstname: 'Cunegonde',
           lastname: 'Madame',
           email: 'cunegonde@gmail.com',
-          password: 'passwordCM',
+          password:
+            '$2a$10$uumTh7/ApN.uW2s9MzoWR.2oSEJF.ZQBTxFNIYjNLyOTj5vFUQ4F2',
           role: 'Member',
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -44,7 +47,8 @@ module.exports = {
           firstname: 'Jean',
           lastname: 'Bonbeur',
           email: 'JeanB@gmail.com',
-          password: 'passwordJB',
+          password:
+            '$2a$10$uumTh7/ApN.uW2s9MzoWR.2oSEJF.ZQBTxFNIYjNLyOTj5vFUQ4F2',
           role: 'Member',
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -54,7 +58,8 @@ module.exports = {
           firstname: 'Gaston',
           lastname: 'Lagaffe',
           email: 'Gaston@gmail.com',
-          password: 'passwordGL',
+          password:
+            '$2a$10$uumTh7/ApN.uW2s9MzoWR.2oSEJF.ZQBTxFNIYjNLyOTj5vFUQ4F2',
           role: 'User',
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -64,7 +69,8 @@ module.exports = {
           firstname: 'Jacques Yves',
           lastname: 'Cousteau',
           email: 'Cousteau@gmail.com',
-          password: 'passwordJYC',
+          password:
+            '$2a$10$uumTh7/ApN.uW2s9MzoWR.2oSEJF.ZQBTxFNIYjNLyOTj5vFUQ4F2',
           role: 'Member',
           createdAt: new Date(),
           updatedAt: new Date(),

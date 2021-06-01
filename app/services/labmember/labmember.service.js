@@ -1,6 +1,5 @@
 const { LabMembers, sequelize } = require('../../../models/');
-/* const labmembers = require('../../../models/labmembers'); */
-/* const { updateLabMember } = require('../../controlers/labmember.controler'); */
+const bcrypt = require('bcryptjs');
 
 const LabMembersService = {
   getAllLabMembers: async () => {
@@ -33,19 +32,26 @@ const LabMembersService = {
   addLabMember: async (newLabMember) => {
     if (newLabMember !== null) {
       const { firstname, lastname, email, role } = newLabMember;
-
+      /* let password; */
       console.log(newLabMember);
       const trans = await sequelize.transaction();
+
+      const salt = bcrypt.genSaltSync(10);
+      const password = bcrypt.hashSync(newLabMember.password, salt);
+
+      console.log(password);
       try {
         const newlabMem = await LabMembers.create(
           {
             firstname: firstname,
             lastname: lastname,
             email: email,
+            password: password,
             role: role,
           },
           { transaction: trans }
         );
+
         await trans.commit();
       } catch (e) {
         await trans.rollback();
