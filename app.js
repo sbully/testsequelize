@@ -12,7 +12,7 @@ db.authenticate()
   .then(() => console.log('database connected ....'))
   .catch((err) => console.log(`unable to connect, Error :${err}`));
 //app.get('/', (req, res) => res.send('INDEX'));
-
+app.use(express.json());
 app.use('/', routes);
 
 app.listen(PORT, console.log(`server started on port :${PORT}`));
