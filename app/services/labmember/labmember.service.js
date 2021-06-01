@@ -3,14 +3,23 @@ const { LabMembers, sequelize } = require('../../../models/');
 /* const { updateLabMember } = require('../../controlers/labmember.controler'); */
 
 const LabMembersService = {
-  async getAllLabMembers() {
+  getAllLabMembers: async () => {
     return await LabMembers.findAll();
   },
-  async getOneMemberById(id) {
+  getOneMemberById: async (id) => {
     return await LabMembers.findByPk(id);
   },
+  getLabMembersLogin: async (email, password) => {
+    if (!email || !password) return null;
+    else {
+      const labmemb = await LabMembers.findOne({
+        where: { email: email, password: password },
+      });
+      console.log(labmemb);
+    }
+  },
 
-  async deleteOneLabMember(id) {
+  deleteOneLabMember: async (id) => {
     if (parseInt(id)) {
       const trans = await sequelize.transaction();
       try {
@@ -22,7 +31,7 @@ const LabMembersService = {
       }
     }
   },
-  async addLabMember(newLabMember) {
+  addLabMember: async (newLabMember) => {
     if (newLabMember !== null) {
       const { firstname, lastname, email, role } = newLabMember;
 
@@ -47,7 +56,7 @@ const LabMembersService = {
     }
   },
   //#region UPDATELABMEMBER
-  async updateLabMember(params) {
+  updateLabMember: async (params) => {
     const { id, firstname } = params;
     const trans = await sequelize.transaction();
     try {

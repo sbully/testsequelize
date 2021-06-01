@@ -19,6 +19,10 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
       },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       role: {
         allowNull: false,
         type: Sequelize.ENUM,
