@@ -12,10 +12,9 @@ const LabMembersService = {
   getLabMembersLogin: async (email, password) => {
     if (!email || !password) return null;
     else {
-      const labmemb = await LabMembers.findOne({
+      return await LabMembers.findOne({
         where: { email: email, password: password },
       });
-      console.log(labmemb);
     }
   },
 
