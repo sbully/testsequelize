@@ -1,17 +1,24 @@
 const LabMemberService = require('../services/labmember/labmember.service');
+const bcrypt = require('bcryptjs');
 
 const LoginControler = {
   login: async (req, res) => {
-    console.log(`req body : ${req.body}`);
     if (req.body) {
       const { email, password } = req.body;
-      /*
-	  const email = 'toto@gmail.com';
-      const password = 'passwordTT'; 
-	  */
       try {
         console.log(email + ' ' + password);
-        await LabMemberService.getLabMembersLogin(email, password);
+        const logMembers = await LabMemberService.getLabMemberByEmail(email);
+        if (
+          logMembers &&
+          (await bcrypt.compare(password, logMembers.password))
+        ) {
+          console.log('match');
+          res.status(200);
+          res.json(logMembers);
+        } else {
+          res.status(401);
+          res.send('Wrong Email or Password');
+        }
       } catch (err) {
         res.status(400);
         res.send(err);
