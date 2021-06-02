@@ -7,8 +7,11 @@ const LoginControler = {
       const { email, password } = req.body;
       try {
         console.log(email + ' ' + password);
-        const logMembers = await LabMemberService.getLabMembersLogin(email);
-        if (logMembers && bcrypt.compare(password, logMembers.password)) {
+        const logMembers = await LabMemberService.getLabMemberByEmail(email);
+        if (
+          logMembers &&
+          (await bcrypt.compare(password, logMembers.password))
+        ) {
           console.log('match');
           res.status(200);
           res.json(logMembers);

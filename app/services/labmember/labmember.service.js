@@ -5,10 +5,10 @@ const LabMembersService = {
   getAllLabMembers: async () => {
     return await LabMembers.findAll();
   },
-  getOneMemberById: async (id) => {
+  getLabMemberById: async (id) => {
     return await LabMembers.findByPk(id);
   },
-  getLabMembersLogin: async (email) => {
+  getLabMemberByEmail: async (email) => {
     if (!email) return null;
     else {
       return await LabMembers.findOne({
@@ -17,7 +17,7 @@ const LabMembersService = {
     }
   },
 
-  deleteOneLabMember: async (id) => {
+  deleteLabMember: async (id) => {
     if (parseInt(id)) {
       const trans = await sequelize.transaction();
       try {

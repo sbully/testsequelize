@@ -11,10 +11,10 @@ const LabMemberControler = {
       res.send('Cannot load Members');
     }
   },
-  async getOneLabMember(req, res) {
+  async getLabMemberById(req, res) {
     if (parseInt(req.params.id)) {
       try {
-        const labMember = await LabMemberService.getOneMemberById(
+        const labMember = await LabMemberService.getLabMemberById(
           req.params.id
         );
         res.json(labMember);
@@ -30,7 +30,7 @@ const LabMemberControler = {
   async deleteOneLabMember(req, res) {
     if (parseInt(req.params.id)) {
       try {
-        await LabMemberService.deleteOneLabMember(req.params.id);
+        await LabMemberService.deleteLabMember(req.params.id);
         console.log('delete succes');
       } catch (e) {
         console.log(`delete fail: ${e}`);
@@ -48,18 +48,20 @@ const LabMemberControler = {
       await LabMemberService.addLabMember(newLabMember);
     } catch (error) {
       console.log(error);
+      res.status(400);
+      res.send('error when create Labmenber');
     }
-    res.redirect('/');
+    res.json(await LabMemberService.getLabMemberByEmail(newLabMember.email));
   },
 
   async updateLabMember(req, res) {
-    const { id, firstname } = req.params;
+    const { id } = req.params;
     try {
       await LabMemberService.updateLabMember(req.params);
     } catch (err) {
       console.log(`Error when update: ${err}`);
     }
-    res.redirect('/');
+    res.json(await LabMemberService.getLabMemberById(id));
   },
 };
 

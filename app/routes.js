@@ -6,7 +6,7 @@ const AddMemberService = require('./services/middleware/addmember.service');
 const LoginControler = require('./controlers/login.controler');
 
 router.get('/', LabMemberControler.getAllLabMembers);
-router.get('/one/:id', LabMemberControler.getOneLabMember);
+router.get('/one/:id', LabMemberControler.getLabMemberById);
 router.post(
   '/add',
 
