@@ -8,11 +8,11 @@ const LabMembersService = {
   getOneMemberById: async (id) => {
     return await LabMembers.findByPk(id);
   },
-  getLabMembersLogin: async (email, password) => {
-    if (!email || !password) return null;
+  getLabMembersLogin: async (email) => {
+    if (!email) return null;
     else {
       return await LabMembers.findOne({
-        where: { email: email, password: password },
+        where: { email: email },
       });
     }
   },
